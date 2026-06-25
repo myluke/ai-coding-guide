@@ -84,7 +84,14 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#a6e3a1' }],
-    ['meta', { property: 'og:image', content: '/og.png' }],
+    // 社交分享卡片：og:image 必须是绝对 URL，否则微信/Twitter/Facebook 抓不到
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'AI 编程指南' }],
+    ['meta', { property: 'og:description', content: 'Claude Code + Codex 中文小白教程 · 92 篇' }],
+    ['meta', { property: 'og:url', content: 'https://coding.easya.work/' }],
+    ['meta', { property: 'og:image', content: 'https://coding.easya.work/og.png' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://coding.easya.work/og.png' }],
   ],
 
   themeConfig: {
