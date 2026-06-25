@@ -14,8 +14,8 @@
         </span>
 
         <h1 class="headline">
-          <span class="ln">在终端里，</span>
-          <span class="ln grad">长出生产力</span>
+          <span class="ln">一个人，</span>
+          <span class="ln grad">干出一支队伍</span>
         </h1>
 
         <p class="lede">
