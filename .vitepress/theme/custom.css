@@ -1,0 +1,128 @@
+/**
+ * 暗色终端风主题皮肤
+ * 仅覆盖 VitePress 默认主题的 CSS 变量与少量选择器，不重写任何组件。
+ * 亮 / 暗模式分别设色，保证两种模式对比度都达标。
+ */
+
+/* ============ 字体：等宽栈（系统字体，不引外部，零网络依赖） ============ */
+:root {
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace,
+    SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+/* ============ 品牌色：终端绿 ============ */
+/* 亮色模式：绿色加深，保证白底对比度 */
+:root {
+  --vp-c-brand-1: #2f9e44;
+  --vp-c-brand-2: #2b8a3e;
+  --vp-c-brand-3: #37b24d;
+  --vp-c-brand-soft: rgba(64, 192, 87, 0.14);
+
+  /* 按钮：深绿底 + 白字 */
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-border: var(--vp-c-brand-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-hover-border: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: var(--vp-c-brand-2);
+}
+
+/* 暗色模式：终端绿提亮 + GitHub 深黑背景 */
+.dark {
+  --vp-c-brand-1: #a6e3a1;
+  --vp-c-brand-2: #b7f0ad;
+  --vp-c-brand-3: #74c69d;
+  --vp-c-brand-soft: rgba(166, 227, 161, 0.16);
+
+  --vp-c-bg: #0d1117;
+  --vp-c-bg-alt: #010409;
+  --vp-c-bg-soft: #161b22;
+  --vp-c-bg-elv: #161b22;
+
+  --vp-c-border: #21262d;
+  --vp-c-divider: #21262d;
+
+  --vp-code-block-bg: #0a0e14;
+
+  /* 按钮：终端绿底 + 深色字（终端按钮观感） */
+  --vp-button-brand-text: #0d1117;
+  --vp-button-brand-hover-text: #0d1117;
+  --vp-button-brand-active-text: #0d1117;
+}
+
+/* ============ 首页 Hero：绿色发光渐变 + 等宽标题 ============ */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #2f9e44 30%, #1098ad);
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #a6e3a1 30%,
+    #41d1ff 70%
+  );
+  --vp-home-hero-image-filter: blur(56px);
+}
+.dark {
+  --vp-home-hero-name-background: linear-gradient(120deg, #b7f0ad 30%, #5fd9a8);
+}
+.VPHero .name .clip {
+  font-family: var(--vp-font-family-mono);
+  letter-spacing: -0.02em;
+}
+.dark .VPHero .name .clip {
+  filter: drop-shadow(0 0 24px rgba(166, 227, 161, 0.35));
+}
+
+/* ============ 克制的终端风点缀 ============ */
+/* 站点标题：等宽 + 终端提示符 */
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-mono);
+}
+.VPNavBarTitle .title::before {
+  content: '❯ ';
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+/* 选中文本：绿色高亮 */
+::selection {
+  background: rgba(166, 227, 161, 0.3);
+}
+
+/* 暗色细滚动条 */
+.dark::-webkit-scrollbar,
+.dark ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.dark::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+.dark::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 6px;
+  border: 2px solid #0d1117;
+}
+.dark::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3f4651;
+}
+
+/* 首页 feature 卡片：hover 出绿边、轻微上浮 */
+.VPFeature {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-3px);
+}
+
+/* 正文行内代码：终端绿调（仅暗色，亮色保持默认更稳） */
+.dark .vp-doc :not(pre) > code {
+  color: var(--vp-c-brand-1);
+}
+
+/* 引用块左边框用品牌绿 */
+.vp-doc blockquote {
+  border-left-color: var(--vp-c-brand-1);
+}

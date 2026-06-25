@@ -48,11 +48,11 @@ The four entry points, AGENTS.md, sandbox approvals, config.toml, Chronicle memo
 | **Does it cost money?** | The tutorial itself is **completely free** (MIT). But Claude Code / Codex themselves require a subscription or API payment — subscribe to whatever fits your needs. |
 | **Can I learn without command-line experience?** | Yes. The first group, "Getting Started", is built for newcomers and starts from the basics. |
 | **Claude Code or Codex first?** | The two are conceptually close, each with its strengths. **Beginners: start with Codex** — lower barrier and friendlier for users in mainland China; Claude Code has stricter account risk controls (higher ban risk), so it's safer to get comfortable first and switch later. The Codex section includes a "Migrating from Claude Code" comparison — the two are interchangeable. |
-| **Will it be updated?** | Both tools iterate fast; important changes are tracked. See [Commits](https://github.com/stormzhang/ai-coding-guide/commits/main) for versions. |
+| **Will it be updated?** | Both tools iterate fast; important changes are tracked. See [Commits](https://github.com/myluke/ai-coding-guide/commits/main) for versions. |
 
 ## Contributing / Feedback
 
-- Found a typo, outdated info, or broken link → [open an Issue](https://github.com/stormzhang/ai-coding-guide/issues/new)
+- Found a typo, outdated info, or broken link → [open an Issue](https://github.com/myluke/ai-coding-guide/issues/new)
 - Want to improve wording or add a gotcha → PRs welcome
 - Want a new topic or tool → open an Issue to discuss the direction first
 

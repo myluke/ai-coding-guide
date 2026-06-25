@@ -150,11 +150,11 @@
 | **要付费吗？** | 教程本身 **完全免费**（MIT）。但 Claude Code / Codex 这两个工具本身需要订阅或 API 付费，各位按自己需求订阅就好 |
 | **没用过命令行能学吗？** | 能。第一组「基础入门」专门照顾新手，从命令行基础带起 |
 | **Claude Code 和 Codex 学哪个？** | 两个工具理念接近、各有所长。**新手建议从 Codex 起步**——门槛更低、对国内用户更友好；Claude Code 账号风控更严、封号风险更高，等熟悉了再上手更稳。Codex 篇有「从 Claude Code 迁移」横向对比，两边可无缝切换 |
-| **教程会更新吗？** | 这两个工具迭代很快，重要变化会跟进。版本信息见 [Commits](https://github.com/stormzhang/ai-coding-guide/commits/main) |
+| **教程会更新吗？** | 这两个工具迭代很快，重要变化会跟进。版本信息见 [Commits](https://github.com/myluke/ai-coding-guide/commits/main) |
 
 ## 贡献 / 反馈
 
-- 发现错别字、过时信息、坏链接 → 直接[提 Issue](https://github.com/stormzhang/ai-coding-guide/issues/new)
+- 发现错别字、过时信息、坏链接 → 直接[提 Issue](https://github.com/myluke/ai-coding-guide/issues/new)
 - 想改进某句表述、补充踩坑案例 → 欢迎 PR
 - 想加新主题、新工具 → 先开 Issue 讨论方向
 

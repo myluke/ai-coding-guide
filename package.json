@@ -1,0 +1,15 @@
+{
+  "name": "ai-coding-guide",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI 编程（Claude Code + Codex）中文小白教程",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
