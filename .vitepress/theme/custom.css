@@ -122,7 +122,167 @@
   color: var(--vp-c-brand-1);
 }
 
-/* 引用块左边框用品牌绿 */
+/* ============ 紫调标题强调色（配合终端绿，呼应目标设计） ============ */
+:root {
+  --cc-accent: #5b53d6; /* 亮色：靛紫，白底够沉 */
+}
+.dark {
+  --cc-accent: #b4bcf9; /* 暗色：淡靛紫，发图同款 */
+}
+
+/* H1 用紫调 + 等宽微调 */
+.vp-doc h1 {
+  color: var(--cc-accent);
+  font-family: var(--vp-font-family-mono);
+  letter-spacing: -0.01em;
+}
+.dark .vp-doc h1 {
+  text-shadow: 0 0 28px rgba(180, 188, 249, 0.25);
+}
+
+/* H1 紧跟的「纯 em」段落 = 文章副标题，做成灰色等宽 deck */
+.vp-doc h1 + p:has(> em:only-child) {
+  margin-top: -0.4rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.95rem;
+  color: var(--vp-c-text-2);
+}
+.vp-doc h1 + p:has(> em:only-child) > em {
+  font-style: normal;
+}
+
+/* ============ 终端窗口：把正文框成一扇窗 ============ */
+/* 标题栏（DocTopBar 注入，渲染在 .content-container 内、<main> 之前） */
+.doc-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 12.5px;
+  line-height: 1;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px 12px 0 0;
+}
+.doc-topbar .tw-dots {
+  display: inline-flex;
+  flex: none;
+  gap: 8px;
+}
+.doc-topbar .tw-dots i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.doc-topbar .tw-dots i:nth-child(1) {
+  background: #ff5f56;
+}
+.doc-topbar .tw-dots i:nth-child(2) {
+  background: #ffbd2e;
+}
+.doc-topbar .tw-dots i:nth-child(3) {
+  background: #27c93f;
+}
+.doc-topbar .tw-crumb {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.doc-topbar .tw-user {
+  color: var(--vp-c-text-1);
+}
+.doc-topbar .tw-tilde {
+  color: var(--vp-c-brand-1);
+  margin: 0 5px;
+}
+.doc-topbar .tw-read {
+  flex: none;
+}
+
+/* 窗口主体：紧邻标题栏的 main，与标题栏边框无缝拼成一扇窗 */
+.doc-topbar + .main {
+  border: 1px solid var(--vp-c-border);
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+  background: var(--vp-c-bg);
+  padding: 22px 32px 36px;
+  box-shadow: 0 18px 50px -24px rgba(0, 0, 0, 0.5);
+}
+.dark .doc-topbar + .main {
+  background: #0b0f15; /* 比页面底色稍深，凸显「窗口」层次 */
+  box-shadow: 0 22px 60px -28px rgba(0, 0, 0, 0.85);
+}
+.doc-topbar + .main > .vp-doc > :first-child {
+  margin-top: 4px;
+}
+/* footer / 翻页留在窗口外，给点呼吸 */
+.content-container:has(.doc-topbar) .VPDocFooter {
+  margin-top: 26px;
+}
+
+/* ============ 加宽阅读区：默认 688px 太窄、两侧留白过多 ============ */
+:root {
+  --vp-layout-max-width: 1600px; /* 默认 1440，放宽整体上限给正文更多空间 */
+}
+/* 内容列加宽。VitePress 原规则是带 [data-v] 的 scoped 样式、特异性更高，
+   故用 !important 强制覆盖（默认 688 → 1040）。 */
+.VPDoc.has-aside .content-container {
+  max-width: 1040px !important;
+}
+/* 去掉内容列外层左右各 32px 内边距：终端窗口自身已有 32px 内边距，足够呼吸 */
+@media (min-width: 960px) {
+  .VPDoc .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/* 让内容列向侧栏方向铺开、吃掉左侧黑边（右侧 aside 仍保留其固定宽度） */
+@media (min-width: 1280px) {
+  .VPDoc.has-aside .content {
+    flex-grow: 1;
+    min-width: 0;
+  }
+}
+
+/* ============ 引用块卡片化（系列导航 / 一句话总结 等） ============ */
 .vp-doc blockquote {
-  border-left-color: var(--vp-c-brand-1);
+  border: 1px solid var(--vp-c-border);
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  padding: 14px 18px;
+}
+.vp-doc blockquote > p {
+  margin: 0;
+}
+.vp-doc blockquote strong {
+  color: var(--vp-c-brand-1);
+}
+
+/* ============ 右侧本页目录：绿色 ▶ 提示符 ============ */
+.VPDocAsideOutline .outline-title::before {
+  content: '▶ ';
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+/* ============ 移动端收窄 ============ */
+@media (max-width: 640px) {
+  .doc-topbar {
+    gap: 10px;
+    padding: 9px 12px;
+    font-size: 11.5px;
+  }
+  .doc-topbar .tw-dots i {
+    width: 10px;
+    height: 10px;
+  }
+  .doc-topbar + .main {
+    padding: 16px 16px 24px;
+  }
 }

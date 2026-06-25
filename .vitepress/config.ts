@@ -60,6 +60,27 @@ export default defineConfig({
     theme: { light: 'github-light', dark: 'github-dark' },
   },
 
+  // 阅读时长 + 面包屑：构建期算好写进 frontmatter，组件直接读，SSR 无闪烁。
+  // 仅处理 claude-code/ 与 codex/ 下编号文章；首页 / README / 404 自动跳过。
+  transformPageData(pageData, { siteConfig }) {
+    const rel = pageData.relativePath
+    if (!/^(claude-code|codex)\/\d/.test(rel)) return
+    pageData.frontmatter.crumb = rel.replace(/\.md$/, '')
+    try {
+      const body = fs
+        .readFileSync(path.join(siteConfig.srcDir, rel), 'utf-8')
+        .replace(/^---[\s\S]*?\n---/, '') // 去 frontmatter
+        .replace(/```[\s\S]*?```/g, '') // 去围栏代码块
+        .replace(/`[^`]*`/g, '') // 去行内代码
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // 去图片
+        .replace(/<[^>]+>/g, '') // 去 HTML 标签
+      const cjk = (body.match(/[一-鿿]/g) || []).length
+      const en = (body.match(/[A-Za-z0-9]+/g) || []).length
+      // 中英混排：每分钟约 400 个「字/词」，向上取整、至少 1 分钟
+      pageData.frontmatter.readingTime = Math.max(1, Math.round((cjk + en) / 400))
+    } catch {}
+  },
+
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#a6e3a1' }],

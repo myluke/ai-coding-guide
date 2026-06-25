@@ -1,0 +1,87 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#VPContent"
+  - banner:
+    - generic:
+      - generic:
+        - generic:
+          - link "❯ AI 编程指南" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - text: ❯
+            - generic [ref=e7]: AI 编程指南
+          - generic [ref=e8]:
+            - button "Search" [ref=e11] [cursor=pointer]:
+              - generic [ref=e14]: Search
+              - generic [ref=e15]:
+                - generic [ref=e16]: ⌘
+                - generic [ref=e17]: K
+            - navigation "Main Navigation" [ref=e18]:
+              - generic [ref=e19]: Main Navigation
+              - link "Claude Code" [ref=e20] [cursor=pointer]:
+                - /url: /claude-code/01-what-is-claude-code
+                - generic [ref=e21]: Claude Code
+              - link "Codex" [ref=e22] [cursor=pointer]:
+                - /url: /codex/01-what-is-codex
+                - generic [ref=e23]: Codex
+              - link "GitHub" [ref=e24] [cursor=pointer]:
+                - /url: https://github.com/myluke/ai-coding-guide
+                - generic [ref=e25]: GitHub
+            - switch "Switch to light theme" [checked] [ref=e27] [cursor=pointer]
+            - link "github" [ref=e33] [cursor=pointer]:
+              - /url: https://github.com/myluke/ai-coding-guide
+  - generic [ref=e37]:
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e40]: Claude Code · Codex · 92 篇
+        - heading "在终端里， 长出生产力" [level=1] [ref=e42]:
+          - generic [ref=e43]: 在终端里，
+          - generic [ref=e44]: 长出生产力
+        - paragraph [ref=e45]: 面向小白的 AI 编程指南。从装好到熟练，把命令行变成你最快的那只手。
+        - generic [ref=e46]:
+          - link "从 Claude Code 开始 →" [ref=e47] [cursor=pointer]:
+            - /url: /claude-code/01-what-is-claude-code
+          - link "Codex 篇" [ref=e48] [cursor=pointer]:
+            - /url: /codex/01-what-is-codex
+      - generic [ref=e49]:
+        - generic [ref=e55]: claude
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - img [ref=e58]
+            - generic [ref=e66]:
+              - generic [ref=e67]: Claude Code v2.1.183
+              - generic [ref=e68]: Opus 4.8 (1M context)
+              - generic [ref=e69]: Claude Max
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - text: 根因是
+              - code [ref=e72]: orders.list
+              - text: 的 N+1，我改成批量预加载 + 加复合索引。
+            - listitem [ref=e73]: Update(src/orders.ts)
+          - generic [ref=e74]: "// 批量预加载，一次查回所有 user const ids = orders.map(o => o.userId) const users = await db.user.findMany({ where: { id: { in: ids } }, })"
+          - list [ref=e75]:
+            - listitem [ref=e76]: Bash(npm run bench)
+          - generic [ref=e77]:
+            - generic [ref=e78]: P95 320ms → 90ms
+            - generic [ref=e79]: QPS 1.2k → 4.6k
+            - generic [ref=e80]: queries/req 24 → 2
+          - list [ref=e81]:
+            - listitem [ref=e82]:
+              - text: 定位到
+              - code [ref=e83]: orders.list
+              - text: 的 N+1：批量预加载 + 复合索引，P95 降 72%、每请求查询数 24→2。
+          - generic [ref=e84]: ❯
+    - generic [ref=e86]:
+      - link "53 篇 → Claude Code 篇 从安装、代理循环，到 MCP、子代理、Skill、Hooks 与综合实战。" [ref=e87] [cursor=pointer]:
+        - /url: /claude-code/01-what-is-claude-code
+        - generic [ref=e88]:
+          - generic [ref=e89]: 53 篇
+          - generic [ref=e90]: →
+        - heading "Claude Code 篇" [level=3] [ref=e91]
+        - paragraph [ref=e92]: 从安装、代理循环，到 MCP、子代理、Skill、Hooks 与综合实战。
+      - link "39 篇 → Codex 篇 四种入口、AGENTS.md、沙箱审批、config.toml 到工程化自动化。" [ref=e93] [cursor=pointer]:
+        - /url: /codex/01-what-is-codex
+        - generic [ref=e94]:
+          - generic [ref=e95]: 39 篇
+          - generic [ref=e96]: →
+        - heading "Codex 篇" [level=3] [ref=e97]
+        - paragraph [ref=e98]: 四种入口、AGENTS.md、沙箱审批、config.toml 到工程化自动化。
